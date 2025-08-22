@@ -13,6 +13,7 @@ import CustomerPage from "./pages/CustomerPage";
 import ReportPage from "./pages/ReportPage";
 import EmployeePage from "./pages/EmployeePage";
 import AuthPage from "./pages/AuthPage";
+import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="accounts" element={<div className="p-6"><h1 className="text-2xl font-bold">Account Management</h1><p className="text-muted-foreground mt-2">Account management features coming soon...</p></div>} />
               <Route path="reports" element={<ReportPage />} />
               <Route path="employees" element={<EmployeePage />} />
+              <Route path="profile" element={<ProfilePage />} />
               <Route path="calendar" element={<div className="p-6"><h1 className="text-2xl font-bold">Calendar</h1><p className="text-muted-foreground mt-2">Calendar features coming soon...</p></div>} />
               <Route path="help" element={<div className="p-6"><h1 className="text-2xl font-bold">Help Center</h1><p className="text-muted-foreground mt-2">Help and support features coming soon...</p></div>} />
             </Route>
