@@ -62,8 +62,8 @@ export default function AppLayout() {
         <div className="p-4 border-b border-sidebar-border">
           <div className="flex items-center justify-between">
             {sidebarOpen && (
-              <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                InvoicePro
+              <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent font-lemon">
+                BillSync
               </h1>
             )}
             <Button
@@ -106,7 +106,7 @@ export default function AppLayout() {
         <div className="p-4 border-t border-sidebar-border">
           {sidebarOpen && (
             <div className="text-xs text-sidebar-foreground/60">
-              © 2024 InvoicePro Hub
+              © 2024 BillSync
             </div>
           )}
         </div>
