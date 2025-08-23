@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'lemon': ['Lemon', 'cursive'],
+				'als-lamon': ['ALS Lamon Regular', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
