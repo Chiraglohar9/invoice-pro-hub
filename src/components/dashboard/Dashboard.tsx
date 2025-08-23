@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { 
   DollarSign, 
   TrendingUp, 
@@ -165,31 +166,42 @@ export default function Dashboard() {
             </Button>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {recentInvoices.map((invoice) => (
-                <div key={invoice.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/20">
-                  <div className="flex items-center space-x-3">
-                    <div>
-                      <p className="font-medium text-sm">{invoice.id}</p>
-                      <p className="text-xs text-muted-foreground">{invoice.client}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="font-bold">${invoice.amount.toLocaleString()}</span>
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      invoice.status === 'paid' ? 'bg-success/20 text-success' : 
-                      invoice.status === 'pending' ? 'bg-warning/20 text-warning' :
-                      'bg-destructive/20 text-destructive'
-                    }`}>
-                      {invoice.status}
-                    </span>
-                    <Button variant="ghost" size="sm">
-                      <Eye className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Invoice ID</TableHead>
+                  <TableHead>Client</TableHead>
+                  <TableHead>Amount</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Date</TableHead>
+                  <TableHead className="w-[50px]">Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {recentInvoices.map((invoice) => (
+                  <TableRow key={invoice.id}>
+                    <TableCell className="font-medium">{invoice.id}</TableCell>
+                    <TableCell>{invoice.client}</TableCell>
+                    <TableCell className="font-bold">${invoice.amount.toLocaleString()}</TableCell>
+                    <TableCell>
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        invoice.status === 'paid' ? 'bg-success/20 text-success' : 
+                        invoice.status === 'pending' ? 'bg-warning/20 text-warning' :
+                        'bg-destructive/20 text-destructive'
+                      }`}>
+                        {invoice.status}
+                      </span>
+                    </TableCell>
+                    <TableCell className="text-muted-foreground">{invoice.date}</TableCell>
+                    <TableCell>
+                      <Button variant="ghost" size="sm">
+                        <Eye className="h-4 w-4" />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </CardContent>
         </Card>
 
@@ -202,26 +214,37 @@ export default function Dashboard() {
             </Button>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {recentTransactions.map((transaction) => (
-                <div key={transaction.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/20">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-2 h-2 rounded-full ${
-                      transaction.type === 'income' ? 'bg-success' : 'bg-expense'
-                    }`} />
-                    <div>
-                      <p className="font-medium text-sm">{transaction.description}</p>
-                      <p className="text-xs text-muted-foreground">{transaction.date}</p>
-                    </div>
-                  </div>
-                  <span className={`font-bold ${
-                    transaction.amount > 0 ? 'text-success' : 'text-expense'
-                  }`}>
-                    ${Math.abs(transaction.amount).toLocaleString()}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Type</TableHead>
+                  <TableHead>Description</TableHead>
+                  <TableHead>Amount</TableHead>
+                  <TableHead>Date</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {recentTransactions.map((transaction) => (
+                  <TableRow key={transaction.id}>
+                    <TableCell>
+                      <div className="flex items-center space-x-2">
+                        <div className={`w-2 h-2 rounded-full ${
+                          transaction.type === 'income' ? 'bg-success' : 'bg-expense'
+                        }`} />
+                        <span className="capitalize text-sm">{transaction.type}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="font-medium">{transaction.description}</TableCell>
+                    <TableCell className={`font-bold ${
+                      transaction.amount > 0 ? 'text-success' : 'text-expense'
+                    }`}>
+                      ${Math.abs(transaction.amount).toLocaleString()}
+                    </TableCell>
+                    <TableCell className="text-muted-foreground">{transaction.date}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </CardContent>
         </Card>
       </div>
