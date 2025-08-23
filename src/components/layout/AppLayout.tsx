@@ -62,7 +62,7 @@ export default function AppLayout() {
         <div className="p-4 border-b border-sidebar-border">
           <div className="flex items-center justify-between">
             {sidebarOpen && (
-              <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent font-als-lamon">
+              <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                 BillSync
               </h1>
             )}

@@ -18,9 +18,6 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				'als-lamon': ['ALS Lamon Regular', 'cursive'],
-			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
