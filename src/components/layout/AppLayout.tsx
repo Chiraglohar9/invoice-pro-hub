@@ -118,7 +118,7 @@ export default function AppLayout() {
         <header className="bg-card border-b border-border px-6 py-4">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-semibold text-foreground">
-              {navigationItems.find(item => item.href === currentPath)?.name || 'Dashboard'}
+              {currentPath === '/' ? `Welcome back, ${getUserDisplayName()}!` : (navigationItems.find(item => item.href === currentPath)?.name || 'Dashboard')}
             </h2>
             <div className="flex items-center space-x-4">
               <DropdownMenu>
