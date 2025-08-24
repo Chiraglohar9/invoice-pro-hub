@@ -127,11 +127,11 @@ export default function Dashboard() {
 
         <Card className="dashboard-card">
           <CardHeader>
-            <CardTitle>Invoice Trend</CardTitle>
+            <CardTitle>Revenue Growth</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={salesData}>
+              <BarChart data={salesData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                 <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
                 <YAxis stroke="hsl(var(--muted-foreground))" />
@@ -142,14 +142,8 @@ export default function Dashboard() {
                     borderRadius: '8px'
                   }} 
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="invoices" 
-                  stroke="hsl(var(--success))" 
-                  strokeWidth={3}
-                  dot={{ fill: 'hsl(var(--success))', strokeWidth: 2, r: 4 }}
-                />
-              </LineChart>
+                <Bar dataKey="sales" fill="hsl(var(--profit))" radius={4} />
+              </BarChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>

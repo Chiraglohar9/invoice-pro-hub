@@ -14,7 +14,8 @@ import {
   Menu,
   X,
   LogOut,
-  User
+  User,
+  Plus
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
@@ -121,6 +122,10 @@ export default function AppLayout() {
               {currentPath === '/' ? `Welcome back, ${getUserDisplayName()}!` : (navigationItems.find(item => item.href === currentPath)?.name || 'Dashboard')}
             </h2>
             <div className="flex items-center space-x-4">
+              <Button className="gradient-primary text-white">
+                <Plus className="h-4 w-4 mr-2" />
+                Create Invoice
+              </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="relative h-8 w-8 rounded-full">
