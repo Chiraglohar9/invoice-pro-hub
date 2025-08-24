@@ -108,7 +108,7 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={salesData}>
+              <LineChart data={salesData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                 <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
                 <YAxis stroke="hsl(var(--muted-foreground))" />
@@ -119,8 +119,14 @@ export default function Dashboard() {
                     borderRadius: '8px'
                   }} 
                 />
-                <Bar dataKey="sales" fill="hsl(var(--primary))" radius={4} />
-              </BarChart>
+                <Line 
+                  type="monotone" 
+                  dataKey="sales" 
+                  stroke="hsl(var(--primary))" 
+                  strokeWidth={3}
+                  dot={{ fill: 'hsl(var(--primary))', strokeWidth: 2, r: 4 }}
+                />
+              </LineChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
