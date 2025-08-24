@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { 
   LayoutDashboard, 
   FileText, 
@@ -39,6 +39,7 @@ const navigationItems = [
 export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const currentPath = window.location.pathname
+  const navigate = useNavigate()
   const { user, signOut } = useAuth()
 
   const getUserDisplayName = () => {
@@ -150,7 +151,10 @@ export default function AppLayout() {
                     </div>
                   </div>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="cursor-pointer">
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={() => navigate('/profile')}
+                  >
                     <User className="mr-2 h-4 w-4" />
                     Profile
                   </DropdownMenuItem>
