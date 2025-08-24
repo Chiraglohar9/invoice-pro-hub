@@ -16,28 +16,103 @@ export type Database = {
     Tables: {
       profiles: {
         Row: {
+          address_line1: string | null
+          address_line2: string | null
           avatar_url: string | null
+          bio: string | null
+          business_address_line1: string | null
+          business_address_line2: string | null
+          business_city: string | null
+          business_country: string | null
+          business_email: string | null
+          business_phone: string | null
+          business_postal_code: string | null
+          business_state: string | null
+          city: string | null
+          company_name: string | null
+          country: string | null
           created_at: string
+          date_of_birth: string | null
+          department: string | null
           display_name: string | null
+          first_name: string | null
+          gender: string | null
           id: string
+          job_title: string | null
+          last_name: string | null
+          linkedin_url: string | null
+          phone: string | null
+          postal_code: string | null
+          state: string | null
           updated_at: string
           user_id: string
+          website: string | null
         }
         Insert: {
+          address_line1?: string | null
+          address_line2?: string | null
           avatar_url?: string | null
+          bio?: string | null
+          business_address_line1?: string | null
+          business_address_line2?: string | null
+          business_city?: string | null
+          business_country?: string | null
+          business_email?: string | null
+          business_phone?: string | null
+          business_postal_code?: string | null
+          business_state?: string | null
+          city?: string | null
+          company_name?: string | null
+          country?: string | null
           created_at?: string
+          date_of_birth?: string | null
+          department?: string | null
           display_name?: string | null
+          first_name?: string | null
+          gender?: string | null
           id?: string
+          job_title?: string | null
+          last_name?: string | null
+          linkedin_url?: string | null
+          phone?: string | null
+          postal_code?: string | null
+          state?: string | null
           updated_at?: string
           user_id: string
+          website?: string | null
         }
         Update: {
+          address_line1?: string | null
+          address_line2?: string | null
           avatar_url?: string | null
+          bio?: string | null
+          business_address_line1?: string | null
+          business_address_line2?: string | null
+          business_city?: string | null
+          business_country?: string | null
+          business_email?: string | null
+          business_phone?: string | null
+          business_postal_code?: string | null
+          business_state?: string | null
+          city?: string | null
+          company_name?: string | null
+          country?: string | null
           created_at?: string
+          date_of_birth?: string | null
+          department?: string | null
           display_name?: string | null
+          first_name?: string | null
+          gender?: string | null
           id?: string
+          job_title?: string | null
+          last_name?: string | null
+          linkedin_url?: string | null
+          phone?: string | null
+          postal_code?: string | null
+          state?: string | null
           updated_at?: string
           user_id?: string
+          website?: string | null
         }
         Relationships: []
       }
