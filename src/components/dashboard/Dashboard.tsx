@@ -40,28 +40,8 @@ const recentInvoices = [
 
 export default function Dashboard() {
   return (
-    <div className="space-y-8 animate-fade-in">
-      {/* Welcome Message */}
-      <div className="text-center py-12">
-        <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-          Welcome to BillSync
-        </h1>
-        <p className="text-xl text-muted-foreground mb-8">
-          Your comprehensive business management solution
-        </p>
-        <div className="flex justify-center gap-4">
-          <Button className="gradient-primary text-white">
-            <Plus className="h-5 w-5 mr-2" />
-            Create Invoice
-          </Button>
-          <Button variant="outline">
-            <Eye className="h-5 w-5 mr-2" />
-            View Reports
-          </Button>
-        </div>
-      </div>
-
-      {/* Quick Stats */}
+    <div className="space-y-6 animate-fade-in">
+      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="dashboard-card">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -147,11 +127,11 @@ export default function Dashboard() {
 
         <Card className="dashboard-card">
           <CardHeader>
-            <CardTitle>Revenue Distribution</CardTitle>
+            <CardTitle>Invoice Trend</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={salesData}>
+              <LineChart data={salesData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                 <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
                 <YAxis stroke="hsl(var(--muted-foreground))" />
@@ -162,9 +142,14 @@ export default function Dashboard() {
                     borderRadius: '8px'
                   }} 
                 />
-                <Bar dataKey="sales" fill="hsl(var(--success))" radius={4} />
-                <Bar dataKey="invoices" fill="hsl(var(--primary))" radius={4} />
-              </BarChart>
+                <Line 
+                  type="monotone" 
+                  dataKey="invoices" 
+                  stroke="hsl(var(--success))" 
+                  strokeWidth={3}
+                  dot={{ fill: 'hsl(var(--success))', strokeWidth: 2, r: 4 }}
+                />
+              </LineChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
