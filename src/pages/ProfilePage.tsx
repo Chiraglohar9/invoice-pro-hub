@@ -174,7 +174,7 @@ const ProfilePage = () => {
           first_name: formData.first_name,
           last_name: formData.last_name,
           phone: formData.phone,
-          date_of_birth: formData.date_of_birth,
+          date_of_birth: formData.date_of_birth || null,
           gender: formData.gender,
           address_line1: formData.address_line1,
           address_line2: formData.address_line2,
