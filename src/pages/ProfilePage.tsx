@@ -259,7 +259,7 @@ const ProfilePage = () => {
   if (loading) {
     return (
       <div className="container mx-auto py-8 px-4">
-        <div className="max-w-2xl mx-auto">
+        <div className="w-full">
           <div className="flex items-center justify-center h-32">
             <div className="text-muted-foreground">Loading profile...</div>
           </div>
@@ -270,7 +270,7 @@ const ProfilePage = () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <div className="max-w-2xl mx-auto">
+      <div className="w-full">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold">Profile</h1>
@@ -427,11 +427,12 @@ const ProfilePage = () => {
                 <div className="space-y-2">
                   <Label htmlFor="date_of_birth">Date of Birth</Label>
                   {editing ? (
-                    <Input
+                   <Input
                       id="date_of_birth"
                       type="date"
                       value={formData.date_of_birth}
                       onChange={(e) => setFormData(prev => ({ ...prev, date_of_birth: e.target.value }))}
+                      className="pointer-events-auto"
                     />
                   ) : (
                     <div className="flex items-center space-x-2">
