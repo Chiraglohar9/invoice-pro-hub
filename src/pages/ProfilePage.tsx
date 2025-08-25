@@ -9,12 +9,30 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar as CalendarComponent } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { User, Mail, Calendar, Edit3, Save, X, Phone, MapPin, Building, Globe, Linkedin, Briefcase, CalendarIcon } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { User, Mail, Calendar, Edit3, Save, X, Phone, MapPin, Building, Globe, Linkedin, Briefcase, CalendarIcon, Camera } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
+
+// Import avatar images
+import avatar1 from '@/assets/avatars/avatar-1.jpg';
+import avatar2 from '@/assets/avatars/avatar-2.jpg';
+import avatar3 from '@/assets/avatars/avatar-3.jpg';
+import avatar4 from '@/assets/avatars/avatar-4.jpg';
+import avatar5 from '@/assets/avatars/avatar-5.jpg';
+import avatar6 from '@/assets/avatars/avatar-6.jpg';
+import avatar7 from '@/assets/avatars/avatar-7.jpg';
+import avatar8 from '@/assets/avatars/avatar-8.jpg';
+import avatar9 from '@/assets/avatars/avatar-9.jpg';
+import avatar10 from '@/assets/avatars/avatar-10.jpg';
+
+const AVATAR_OPTIONS = [
+  avatar1, avatar2, avatar3, avatar4, avatar5,
+  avatar6, avatar7, avatar8, avatar9, avatar10
+];
 
 const ProfilePage = () => {
   const { user } = useAuth();
@@ -311,15 +329,55 @@ const ProfilePage = () => {
                   </AvatarFallback>
                 </Avatar>
                 {editing && (
-                  <div className="flex-1">
-                    <Label htmlFor="avatar_url">Avatar URL</Label>
-                    <Input
-                      id="avatar_url"
-                      type="url"
-                      placeholder="https://example.com/avatar.jpg"
-                      value={formData.avatar_url}
-                      onChange={(e) => setFormData(prev => ({ ...prev, avatar_url: e.target.value }))}
-                    />
+                  <div className="flex-1 space-y-3">
+                    <div>
+                      <Label htmlFor="avatar_url">Avatar URL</Label>
+                      <Input
+                        id="avatar_url"
+                        type="url"
+                        placeholder="https://example.com/avatar.jpg"
+                        value={formData.avatar_url}
+                        onChange={(e) => setFormData(prev => ({ ...prev, avatar_url: e.target.value }))}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-muted-foreground">or</span>
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button variant="outline" size="sm">
+                            <Camera className="mr-2 h-4 w-4" />
+                            Choose Avatar
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl">
+                          <DialogHeader>
+                            <DialogTitle>Choose an Avatar</DialogTitle>
+                            <DialogDescription>
+                              Select one of our pre-designed avatars for your profile
+                            </DialogDescription>
+                          </DialogHeader>
+                          <div className="grid grid-cols-5 gap-4 p-4">
+                            {AVATAR_OPTIONS.map((avatar, index) => (
+                              <button
+                                key={index}
+                                onClick={() => setFormData(prev => ({ ...prev, avatar_url: avatar }))}
+                                className={cn(
+                                  "relative rounded-full overflow-hidden border-2 transition-all hover:scale-105",
+                                  formData.avatar_url === avatar 
+                                    ? "border-primary ring-2 ring-primary/20" 
+                                    : "border-border hover:border-primary/50"
+                                )}
+                              >
+                                <Avatar className="h-16 w-16">
+                                  <AvatarImage src={avatar} alt={`Avatar ${index + 1}`} />
+                                  <AvatarFallback>{index + 1}</AvatarFallback>
+                                </Avatar>
+                              </button>
+                            ))}
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </div>
                   </div>
                 )}
               </div>
