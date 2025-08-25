@@ -448,7 +448,7 @@ const ProfilePage = () => {
                         <CalendarComponent
                           mode="single"
                           selected={formData.date_of_birth ? new Date(formData.date_of_birth) : undefined}
-                          onSelect={(date) => setFormData(prev => ({ ...prev, date_of_birth: date ? format(date, 'yyyy-MM-dd') : '' }))}
+                          onSelect={(date) => setFormData(prev => ({ ...prev, date_of_birth: date ? format(date, 'yyyy-MM-dd') : null }))}
                           disabled={(date) => date > new Date() || date < new Date("1900-01-01")}
                           initialFocus
                           className={cn("p-3 pointer-events-auto")}
