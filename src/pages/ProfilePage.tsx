@@ -7,10 +7,14 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { User, Mail, Calendar, Edit3, Save, X, Phone, MapPin, Building, Globe, Linkedin, Briefcase } from 'lucide-react';
+import { Calendar as CalendarComponent } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { User, Mail, Calendar, Edit3, Save, X, Phone, MapPin, Building, Globe, Linkedin, Briefcase, CalendarIcon } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { format } from 'date-fns';
+import { cn } from '@/lib/utils';
 
 const ProfilePage = () => {
   const { user } = useAuth();
@@ -427,19 +431,36 @@ const ProfilePage = () => {
                 <div className="space-y-2">
                   <Label htmlFor="date_of_birth">Date of Birth</Label>
                   {editing ? (
-                   <Input
-                      id="date_of_birth"
-                      type="date"
-                      value={formData.date_of_birth}
-                      onChange={(e) => setFormData(prev => ({ ...prev, date_of_birth: e.target.value }))}
-                      className="pointer-events-auto"
-                    />
+                   <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className={cn(
+                            "w-full justify-start text-left font-normal",
+                            !formData.date_of_birth && "text-muted-foreground"
+                          )}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {formData.date_of_birth ? format(new Date(formData.date_of_birth), "PPP") : <span>Pick a date</span>}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <CalendarComponent
+                          mode="single"
+                          selected={formData.date_of_birth ? new Date(formData.date_of_birth) : undefined}
+                          onSelect={(date) => setFormData(prev => ({ ...prev, date_of_birth: date ? format(date, 'yyyy-MM-dd') : '' }))}
+                          disabled={(date) => date > new Date() || date < new Date("1900-01-01")}
+                          initialFocus
+                          className={cn("p-3 pointer-events-auto")}
+                        />
+                      </PopoverContent>
+                    </Popover>
                   ) : (
                     <div className="flex items-center space-x-2">
                       <Calendar className="h-4 w-4 text-muted-foreground" />
                       <span className="text-sm">
                         {profile?.date_of_birth 
-                          ? new Date(profile.date_of_birth).toLocaleDateString()
+                          ? format(new Date(profile.date_of_birth), "PPP")
                           : 'Not set'
                         }
                       </span>
