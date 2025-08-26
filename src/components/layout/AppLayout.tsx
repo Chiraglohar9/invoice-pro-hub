@@ -155,10 +155,8 @@ export default function AppLayout() {
                         {getUserInitials()}
                       </AvatarFallback>
                     </Avatar>
-                    {/* Line over profile picture */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="w-6 h-0.5 bg-primary rotate-45 opacity-75"></div>
-                    </div>
+                    {/* Circular ring around profile picture */}
+                    <div className="absolute inset-0 rounded-full border-2 border-primary/60 animate-pulse"></div>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56" align="end" forceMount>
