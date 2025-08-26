@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { 
   LayoutDashboard, 
@@ -22,6 +22,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSepara
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/hooks/useAuth'
+import { supabase } from '@/integrations/supabase/client'
 
 const navigationItems = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
@@ -38,9 +39,24 @@ const navigationItems = [
 
 export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [profile, setProfile] = useState<any>(null)
   const currentPath = window.location.pathname
   const navigate = useNavigate()
   const { user, signOut } = useAuth()
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      if (user) {
+        const { data } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('user_id', user.id)
+          .single()
+        setProfile(data)
+      }
+    }
+    fetchProfile()
+  }, [user])
 
   const getUserDisplayName = () => {
     if (user?.user_metadata?.full_name) return user.user_metadata.full_name
@@ -132,7 +148,7 @@ export default function AppLayout() {
                   <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                     <Avatar className="h-8 w-8">
                       <AvatarImage 
-                        src={user?.user_metadata?.avatar_url} 
+                        src={profile?.avatar_url || user?.user_metadata?.avatar_url} 
                         alt={getUserDisplayName()} 
                       />
                       <AvatarFallback>
