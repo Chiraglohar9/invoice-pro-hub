@@ -37,11 +37,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setUser(session?.user ?? null);
         setLoading(false);
 
-        // Create profile after successful signup or signin
+        // Create profile after successful signin (will check if exists)
         if (event === 'SIGNED_IN' && session?.user) {
-          setTimeout(() => {
-            createProfile(session.user);
-          }, 0);
+          createProfile(session.user);
         }
       }
     );
@@ -58,17 +56,27 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const createProfile = async (user: User) => {
     try {
-      const { error } = await supabase.from('profiles').insert({
-        user_id: user.id,
-        display_name: user.user_metadata?.full_name || user.email?.split('@')[0] || '',
-        avatar_url: user.user_metadata?.avatar_url || '',
-      });
+      // First check if profile already exists
+      const { data: existingProfile } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('user_id', user.id)
+        .single();
       
-      if (error && error.code !== '23505') { // Ignore duplicate errors
-        console.error('Error creating profile:', error);
+      // Only create if profile doesn't exist
+      if (!existingProfile) {
+        const { error } = await supabase.from('profiles').insert({
+          user_id: user.id,
+          display_name: user.user_metadata?.full_name || user.email?.split('@')[0] || '',
+          avatar_url: user.user_metadata?.avatar_url || '',
+        });
+        
+        if (error) {
+          console.error('Error creating profile:', error);
+        }
       }
     } catch (error) {
-      console.error('Error creating profile:', error);
+      console.error('Error with profile:', error);
     }
   };
 
