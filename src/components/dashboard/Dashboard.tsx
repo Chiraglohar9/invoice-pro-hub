@@ -12,6 +12,7 @@ import {
   ArrowDownRight
 } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts'
+import { useCountUp } from '@/hooks/useCountUp'
 
 const salesData = [
   { month: 'Jan', sales: 4500, invoices: 23 },
@@ -39,6 +40,11 @@ const recentInvoices = [
 ]
 
 export default function Dashboard() {
+  const totalSales = useCountUp({ end: 34700, duration: 2500 })
+  const cash = useCountUp({ end: 12450, duration: 2000 })
+  const inBank = useCountUp({ end: 22250, duration: 2200 })
+  const invoices = useCountUp({ end: 181, duration: 1800 })
+
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Stats Cards */}
@@ -49,7 +55,7 @@ export default function Dashboard() {
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-success">$34,700</div>
+            <div className="text-2xl font-bold text-success">${totalSales.toLocaleString()}</div>
             <p className="text-xs text-muted-foreground flex items-center">
               <ArrowUpRight className="h-3 w-3 mr-1" />
               +12.5% from last month
@@ -63,7 +69,7 @@ export default function Dashboard() {
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-profit">$12,450</div>
+            <div className="text-2xl font-bold text-profit">${cash.toLocaleString()}</div>
             <p className="text-xs text-muted-foreground flex items-center">
               <ArrowUpRight className="h-3 w-3 mr-1" />
               +8.2% from last week
@@ -77,7 +83,7 @@ export default function Dashboard() {
             <Building2 className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-primary">$22,250</div>
+            <div className="text-2xl font-bold text-primary">${inBank.toLocaleString()}</div>
             <p className="text-xs text-muted-foreground flex items-center">
               <ArrowDownRight className="h-3 w-3 mr-1" />
               -2.1% from last month
@@ -91,7 +97,7 @@ export default function Dashboard() {
             <CreditCard className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">181</div>
+            <div className="text-2xl font-bold">{invoices}</div>
             <p className="text-xs text-muted-foreground flex items-center">
               <ArrowUpRight className="h-3 w-3 mr-1" />
               +15 from last month

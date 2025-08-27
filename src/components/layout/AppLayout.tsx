@@ -15,7 +15,9 @@ import {
   X,
   LogOut,
   User,
-  Plus
+  Plus,
+  Sun,
+  Moon
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
@@ -23,6 +25,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/hooks/useAuth'
 import { supabase } from '@/integrations/supabase/client'
+import { useTheme } from '@/components/ui/theme-provider'
 
 const navigationItems = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
@@ -43,6 +46,7 @@ export default function AppLayout() {
   const currentPath = window.location.pathname
   const navigate = useNavigate()
   const { user, signOut } = useAuth()
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -139,6 +143,16 @@ export default function AppLayout() {
               {currentPath === '/' ? `Welcome back, ${getUserDisplayName()}!` : (navigationItems.find(item => item.href === currentPath)?.name || 'Dashboard')}
             </h2>
             <div className="flex items-center space-x-4">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className="h-9 w-9"
+              >
+                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
               <Button className="gradient-primary text-white">
                 <Plus className="h-4 w-4 mr-2" />
                 Create Invoice
