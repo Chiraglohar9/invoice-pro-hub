@@ -1,22 +1,27 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { useTheme } from '@/components/ui/theme-provider'
 import { useNavigate } from 'react-router-dom'
-import { 
-  CheckCircle, 
-  TrendingUp, 
-  Users, 
-  FileText, 
-  BarChart3, 
+import {
+  CheckCircle,
+  TrendingUp,
+  Users,
+  FileText,
+  BarChart3,
   Shield,
   Zap,
   Clock,
   ArrowRight,
+  Sun,
+  Moon,
   Star
 } from 'lucide-react'
 
 const LandingPage = () => {
   const navigate = useNavigate()
+
+  const { theme, setTheme } = useTheme()
 
   const features = [
     {
@@ -87,6 +92,16 @@ const LandingPage = () => {
               </Badge>
             </div>
             <div className="flex items-center space-x-4">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className="h-9 w-9"
+                aria-label="Toggle theme"
+              >
+                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              </Button>
               <Button variant="ghost" onClick={() => navigate('/auth')}>
                 Sign In
               </Button>
