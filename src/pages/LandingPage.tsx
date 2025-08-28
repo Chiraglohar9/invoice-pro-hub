@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { useTheme } from '@/components/ui/theme-provider'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -142,7 +143,12 @@ const LandingPage = () => {
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+            <Button
+              variant="outline"
+              size="lg"
+              className="text-lg px-8 py-6"
+              onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <Clock className="mr-2 h-5 w-5" />
               Watch Demo
             </Button>
@@ -160,6 +166,43 @@ const LandingPage = () => {
             <div className="flex items-center">
               <CheckCircle className="h-4 w-4 text-success mr-2" />
               Cancel anytime
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Video & Product Image */}
+      <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold">Product Demo</h2>
+            <p className="text-muted-foreground">See how BillSync streamlines invoicing, tracking, and analytics.</p>
+            <div className="rounded-xl overflow-hidden border bg-card">
+              <AspectRatio ratio={16/9}>
+                <video
+                  controls
+                  className="h-full w-full object-cover"
+                  poster="/placeholder.svg"
+                >
+                  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </AspectRatio>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-3xl font-bold">Beautiful, Clear Insights</h3>
+            <p className="text-muted-foreground">A clean dashboard gives you instant visibility into cash flow, revenue, and pending invoices.</p>
+            <div className="rounded-xl overflow-hidden border bg-card">
+              <AspectRatio ratio={16/9}>
+                <img
+                  src="/placeholder.svg"
+                  alt="BillSync dashboard preview"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </AspectRatio>
             </div>
           </div>
         </div>
