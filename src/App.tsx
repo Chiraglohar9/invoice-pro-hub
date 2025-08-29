@@ -1,5 +1,4 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster as AppToaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -65,7 +64,7 @@ const App = () => (
     <AuthProvider>
       <ThemeProvider defaultTheme="dark" storageKey="billsync-theme">
         <TooltipProvider>
-          <Toaster />
+          <AppToaster />
           <BrowserRouter>
             <AppRoutes />
           </BrowserRouter>
