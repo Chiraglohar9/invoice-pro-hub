@@ -173,7 +173,7 @@ const LandingPage = () => {
 
       {/* Demo Video & Product Image */}
       <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 gap-8 items-start">
           <div className="space-y-4">
             <h2 className="text-3xl font-bold">Product Demo</h2>
             <p className="text-muted-foreground">See how BillSync streamlines invoicing, tracking, and analytics.</p>
@@ -191,20 +191,6 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-3xl font-bold">Beautiful, Clear Insights</h3>
-            <p className="text-muted-foreground">A clean dashboard gives you instant visibility into cash flow, revenue, and pending invoices.</p>
-            <div className="rounded-xl overflow-hidden border bg-card">
-              <AspectRatio ratio={16/9}>
-                <img
-                  src="/placeholder.svg"
-                  alt="BillSync dashboard preview"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </AspectRatio>
-            </div>
-          </div>
         </div>
       </section>
 
