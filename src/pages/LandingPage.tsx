@@ -173,7 +173,7 @@ const LandingPage = () => {
 
       {/* Demo Video & Product Image */}
       <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="container grid grid-cols-1 gap-8 items-start justify-items-center">
+        <div className="mx-auto w-full max-w-[1600px] grid grid-cols-1 gap-8 items-start justify-items-center">
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-bold">Product Demo</h2>
             <p className="text-muted-foreground">See how BillSync streamlines invoicing, tracking, and analytics.</p>
