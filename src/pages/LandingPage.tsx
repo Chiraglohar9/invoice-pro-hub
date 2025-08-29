@@ -173,11 +173,11 @@ const LandingPage = () => {
 
       {/* Demo Video & Product Image */}
       <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 gap-8 items-start justify-items-center">
+        <div className="container grid grid-cols-1 gap-8 items-start justify-items-center">
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-bold">Product Demo</h2>
             <p className="text-muted-foreground">See how BillSync streamlines invoicing, tracking, and analytics.</p>
-            <div className="rounded-xl overflow-hidden border bg-card max-w-4xl mx-auto">
+            <div className="rounded-xl overflow-hidden border bg-card w-full">
               <AspectRatio ratio={16/9}>
                 <video
                   controls
