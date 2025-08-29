@@ -177,8 +177,8 @@ const LandingPage = () => {
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-bold">Product Demo</h2>
             <p className="text-muted-foreground">See how BillSync streamlines invoicing, tracking, and analytics.</p>
-            <div className="rounded-xl overflow-hidden border bg-card w-full max-w-[1400px]">
-              <AspectRatio ratio={16/9}>
+            <div className="rounded-xl overflow-hidden border bg-card w-full max-w-[1600px]">
+              <AspectRatio ratio={4/3}>
                 <video
                   controls
                   className="h-full w-full object-cover"
