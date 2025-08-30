@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Separator } from '@/components/ui/separator';
 import { Github, Mail, Eye, EyeOff, Sun, Moon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -80,22 +81,24 @@ const AuthPage = () => {
       </nav>
 
       <main className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold">Welcome to InvoicePro Hub</CardTitle>
-          <CardDescription>
-            Sign in to your account or create a new one
-          </CardDescription>
-        </CardHeader>
-        
-        <CardContent>
-          <Tabs defaultValue="signin" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="signin">Sign In</TabsTrigger>
-              <TabsTrigger value="signup">Sign Up</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="signin">
+      <Card className="w-full max-w-5xl overflow-hidden">
+        <div className="grid md:grid-cols-2">
+          <div className="p-6">
+            <CardHeader className="text-center md:text-left px-0">
+              <CardTitle className="text-2xl font-bold">Welcome to InvoicePro Hub</CardTitle>
+              <CardDescription>
+                Sign in to your account or create a new one
+              </CardDescription>
+            </CardHeader>
+
+            <CardContent className="px-0">
+              <Tabs defaultValue="signin" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-6">
+                  <TabsTrigger value="signin">Sign In</TabsTrigger>
+                  <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="signin">
               <form onSubmit={handleSignIn} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="signin-email">Email</Label>
@@ -185,43 +188,59 @@ const AuthPage = () => {
                   {loading ? 'Creating account...' : 'Sign Up'}
                 </Button>
               </form>
-            </TabsContent>
-          </Tabs>
-          
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <Separator className="w-full" />
+                </TabsContent>
+              </Tabs>
+
+              <div className="mt-6">
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <Separator className="w-full" />
+                  </div>
+                  <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-background px-2 text-muted-foreground">
+                      Or continue with
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mt-6">
+                  <Button
+                    variant="outline"
+                    onClick={signInWithGoogle}
+                    disabled={loading}
+                    className="w-full"
+                  >
+                    <Mail className="mr-2 h-4 w-4" />
+                    Google
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={signInWithGitHub}
+                    disabled={loading}
+                    className="w-full"
+                  >
+                    <Github className="mr-2 h-4 w-4" />
+                    GitHub
+                  </Button>
+                </div>
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
-                  Or continue with
-                </span>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <Button
-                variant="outline"
-                onClick={signInWithGoogle}
-                disabled={loading}
-                className="w-full"
-              >
-                <Mail className="mr-2 h-4 w-4" />
-                Google
-              </Button>
-              <Button
-                variant="outline"
-                onClick={signInWithGitHub}
-                disabled={loading}
-                className="w-full"
-              >
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
-              </Button>
+            </CardContent>
+          </div>
+
+          <div className="hidden md:flex items-center justify-center bg-muted/20 p-6">
+            <div className="w-full max-w-md">
+              <AspectRatio ratio={4/3}>
+                <img
+                  src="https://cdn.builder.io/o/assets%2F6511a20d57e14f15a494c0209d644585%2F245da1efc51842cf96f251ef03be5aee?alt=media&token=85890a1b-d03d-4a44-a18e-0bc78347190c&apiKey=6511a20d57e14f15a494c0209d644585"
+                  alt="Business illustration"
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
+              </AspectRatio>
+              <p className="mt-4 text-sm text-muted-foreground text-center">Secure, modern billing for growing businesses.</p>
             </div>
           </div>
-        </CardContent>
+        </div>
       </Card>
       </main>
     </div>
