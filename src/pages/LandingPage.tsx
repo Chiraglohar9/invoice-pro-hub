@@ -27,7 +27,9 @@ import {
   Github,
   Twitter,
   Linkedin,
-  Mail
+  Mail,
+  FileDown,
+  Brain
 } from 'lucide-react'
 
 const LandingPage = () => {
@@ -36,6 +38,21 @@ const LandingPage = () => {
   const { theme, setTheme } = useTheme()
 
   const features = [
+    {
+      icon: Users,
+      title: "Employee Management",
+      description: "Streamline employee tracking, payroll, and performance with automated tools for seamless team oversight and cost control."
+    },
+    {
+      icon: FileDown,
+      title: "Downloadable Reports",
+      description: "Generate customized, concise financial reports instantly downloadable in PDF or CSV for quick insights and decisions."
+    },
+    {
+      icon: Brain,
+      title: "AI Task Manager",
+      description: "AI-driven manager prioritizes finance tasks predictively, assigns intelligently, and sends alerts to boost productivity and reduce delays."
+    },
     {
       icon: FileText,
       title: "Smart Invoicing",
