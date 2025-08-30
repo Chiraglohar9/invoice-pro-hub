@@ -345,7 +345,7 @@ const LandingPage = () => {
       </section>
 
       {/* Invoice Formats */}
-      <section id="invoice-format" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle/40">
+      <section id="invoice-format" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Professional invoice formats</h2>
