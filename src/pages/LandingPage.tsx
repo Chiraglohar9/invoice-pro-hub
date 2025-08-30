@@ -227,21 +227,21 @@ const LandingPage = () => {
               <Plug className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold tracking-wide">CONNECT</h3>
-            <p className="text-sm text-muted-foreground mt-2">Lorem ipsum dolor sit amet consectetur adipiscing elit. In sed lorem efficitur vestibulum erat finibus.</p>
+            <p className="text-sm text-muted-foreground mt-2">Securely connect bank accounts, payment gateways, and import customers and invoices in minutes.</p>
           </div>
           <div>
             <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
               <Settings className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold tracking-wide">CONFIGURE</h3>
-            <p className="text-sm text-muted-foreground mt-2">Lorem ipsum dolor sit amet consectetur adipiscing elit. In sed lorem efficitur vestibulum erat finibus.</p>
+            <p className="text-sm text-muted-foreground mt-2">Configure taxes, templates, roles, approvals, reminders, and automation rules to match your workflows.</p>
           </div>
           <div>
             <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
               <PartyPopper className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold tracking-wide">ENJOY</h3>
-            <p className="text-sm text-muted-foreground mt-2">Lorem ipsum dolor sit amet consectetur adipiscing elit. In sed lorem efficitur vestibulum erat finibus.</p>
+            <p className="text-sm text-muted-foreground mt-2">Enjoy automated invoicing, reconciliations, and real‑time insights so your team focuses on growth.</p>
           </div>
         </div>
       </section>
