@@ -358,7 +358,7 @@ const LandingPage = () => {
               size="lg" 
               variant="secondary"
               onClick={() => navigate('/auth')}
-              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90"
+              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90"
             >
               Get Started Now
               <ArrowRight className="ml-2 h-5 w-5" />
