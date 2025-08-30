@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { useTheme } from '@/components/ui/theme-provider'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -12,7 +11,7 @@ import {
   BarChart3,
   Shield,
   Zap,
-  Clock,
+
   ArrowRight,
   Sun,
   Moon,
@@ -143,15 +142,6 @@ const LandingPage = () => {
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="text-lg px-8 py-6"
-              onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <Clock className="mr-2 h-5 w-5" />
-              Watch Demo
-            </Button>
           </div>
 
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
@@ -171,28 +161,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Demo Video & Product Image */}
-      <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto w-full max-w-[1920px] grid grid-cols-1 gap-8 items-start justify-items-center">
-          <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold">Product Demo</h2>
-            <p className="text-muted-foreground">See how BillSync streamlines invoicing, tracking, and analytics.</p>
-            <div className="rounded-xl overflow-hidden border bg-card w-full max-w-[1920px]">
-              <AspectRatio ratio={4/3}>
-                <video
-                  controls
-                  className="h-full w-full object-cover"
-                  poster="/placeholder.svg"
-                >
-                  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </AspectRatio>
-            </div>
-          </div>
-
-        </div>
-      </section>
 
       {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
