@@ -220,6 +220,15 @@
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
+
+  /* Animated gradient border wrapper */
+  .animated-gradient-border {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--success)), hsl(var(--primary)));
+    background-size: 200% 200%;
+    padding: 2px;
+    border-radius: calc(var(--radius) + 6px);
+    animation: borderPan 6s linear infinite;
+  }
 }
 
 @layer utilities {
@@ -252,6 +261,12 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes borderPan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes bounceIn {
