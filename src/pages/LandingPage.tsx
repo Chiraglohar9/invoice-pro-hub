@@ -222,10 +222,10 @@ const LandingPage = () => {
                 <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
-              <Button variant="ghost" onClick={() => navigate('/auth')}>
+              <Button variant="ghost" onClick={() => navigate('/auth?tab=signin')}>
                 Sign In
               </Button>
-              <Button onClick={() => navigate('/auth')} variant="default">
+              <Button onClick={() => navigate('/auth?tab=signup')} variant="default">
                 Get Started
               </Button>
             </div>
@@ -254,9 +254,9 @@ const LandingPage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
-              onClick={() => navigate('/auth')}
+            <Button
+              size="lg"
+              onClick={() => navigate('/auth?tab=signup')}
               className="gradient-primary text-white text-lg px-8 py-6"
             >
               Start Free Trial
@@ -454,7 +454,7 @@ const LandingPage = () => {
                   <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Basic analytics</li>
                   <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Email support</li>
                 </ul>
-                <Button onClick={() => navigate('/auth')} className="mt-6">Start free</Button>
+                <Button onClick={() => navigate('/auth?tab=signup')} className="mt-6">Start free</Button>
               </CardContent>
             </Card>
 
@@ -475,7 +475,7 @@ const LandingPage = () => {
                   <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Automations & reminders</li>
                   <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Advanced analytics</li>
                 </ul>
-                <Button onClick={() => navigate('/auth')} className="mt-6" variant="default">Get Pro</Button>
+                <Button onClick={() => navigate('/auth?tab=signup')} className="mt-6" variant="default">Get Pro</Button>
               </CardContent>
             </Card>
 
@@ -493,7 +493,7 @@ const LandingPage = () => {
                   <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Dedicated infrastructure</li>
                   <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Priority support</li>
                 </ul>
-                <Button onClick={() => navigate('/auth')} className="mt-6" variant="secondary">Request demo</Button>
+                <Button onClick={() => navigate('/auth?tab=signup')} className="mt-6" variant="secondary">Request demo</Button>
               </CardContent>
             </Card>
           </div>
@@ -567,7 +567,7 @@ const LandingPage = () => {
             <Button
               size="lg"
               variant="secondary"
-              onClick={() => navigate('/auth')}
+              onClick={() => navigate('/auth?tab=signup')}
               className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90"
             >
               Get Started Now
