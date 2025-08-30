@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { useTheme } from '@/components/ui/theme-provider'
+import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
 import { useNavigate } from 'react-router-dom'
 import {
   CheckCircle,
@@ -18,7 +20,11 @@ import {
   Star,
   Plug,
   Settings,
-  PartyPopper
+  PartyPopper,
+  Github,
+  Twitter,
+  Linkedin,
+  Mail
 } from 'lucide-react'
 
 const LandingPage = () => {
@@ -310,19 +316,60 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/40 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-4 md:mb-0">
-              <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                BillSync
-              </h3>
-              <Badge variant="secondary" className="ml-3">
-                Beta
-              </Badge>
+      <footer className="border-t border-border/40 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center">
+                <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                  BillSync
+                </h3>
+                <Badge variant="secondary" className="ml-3">Beta</Badge>
+              </div>
+              <p className="text-sm text-muted-foreground mt-4">
+                The all-in-one platform to invoice, track payments, and grow revenue.
+              </p>
+              <div className="flex gap-3 mt-4 text-muted-foreground">
+                <a href="#" aria-label="Twitter" className="hover:text-foreground"><Twitter className="h-5 w-5" /></a>
+                <a href="#" aria-label="GitHub" className="hover:text-foreground"><Github className="h-5 w-5" /></a>
+                <a href="#" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-5 w-5" /></a>
+                <a href="#" aria-label="Email" className="hover:text-foreground"><Mail className="h-5 w-5" /></a>
+              </div>
             </div>
-            <div className="text-sm text-muted-foreground">
-              © 2024 BillSync. All rights reserved.
+            <div>
+              <h4 className="text-sm font-semibold mb-3">Product</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-foreground">Features</a></li>
+                <li><a href="#" className="hover:text-foreground">Pricing</a></li>
+                <li><a href="#" className="hover:text-foreground">Integrations</a></li>
+                <li><a href="#" className="hover:text-foreground">Changelog</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-3">Resources</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-foreground">Docs</a></li>
+                <li><a href="#" className="hover:text-foreground">Guides</a></li>
+                <li><a href="#" className="hover:text-foreground">Blog</a></li>
+                <li><a href="#" className="hover:text-foreground">Support</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-3">Stay up to date</h4>
+              <form className="flex gap-2">
+                <Input type="email" placeholder="Your email" className="w-full" />
+                <Button type="submit">Subscribe</Button>
+              </form>
+              <p className="text-xs text-muted-foreground mt-2">No spam. Unsubscribe anytime.</p>
+            </div>
+          </div>
+          <Separator className="my-8" />
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} BillSync. All rights reserved.</p>
+            <div className="text-sm text-muted-foreground flex gap-4">
+              <a href="#" className="hover:text-foreground">Terms</a>
+              <a href="#" className="hover:text-foreground">Privacy</a>
+              <a href="#" className="hover:text-foreground">Security</a>
             </div>
           </div>
         </div>
