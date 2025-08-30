@@ -106,6 +106,26 @@ const LandingPage = () => {
     }
   ]
 
+  const InvoiceSVG = ({ accent }: { accent: string }) => (
+    <svg viewBox="0 0 300 400" className="w-full h-auto" role="img" aria-label="Invoice template preview">
+      <rect x="1" y="1" width="298" height="398" rx="10" fill="#fff" stroke="#e5e7eb" />
+      <rect x="20" y="20" width="60" height="20" rx="4" fill={accent} opacity="0.2" />
+      <rect x="90" y="20" width="90" height="20" rx="4" fill={accent} opacity="0.15" />
+      <rect x="20" y="60" width="110" height="8" rx="2" fill="#9ca3af" />
+      <rect x="20" y="78" width="70" height="6" rx="2" fill="#d1d5db" />
+      <rect x="210" y="20" width="70" height="20" rx="4" fill={accent} />
+      <rect x="20" y="110" width="260" height="22" rx="4" fill={accent} opacity="0.1" />
+      <rect x="20" y="140" width="260" height="22" rx="4" fill={accent} opacity="0.08" />
+      <rect x="20" y="180" width="180" height="8" rx="2" fill="#9ca3af" />
+      <rect x="20" y="196" width="120" height="6" rx="2" fill="#d1d5db" />
+      <rect x="20" y="220" width="260" height="28" rx="4" fill="#f3f4f6" />
+      <rect x="20" y="252" width="260" height="28" rx="4" fill="#f9fafb" />
+      <rect x="20" y="284" width="260" height="28" rx="4" fill="#f3f4f6" />
+      <rect x="160" y="330" width="120" height="12" rx="3" fill="#9ca3af" />
+      <rect x="200" y="350" width="80" height="16" rx="4" fill={accent} />
+    </svg>
+  )
+
   const formatCompact = (n: number) => Intl.NumberFormat(undefined, { notation: 'compact', maximumFractionDigits: 1 }).format(n);
 
   const StatCounter = ({ end, decimals = 0, prefix = '', suffix = '', format = 'none' as 'none' | 'compact' | 'currency' }) => {
@@ -437,54 +457,40 @@ const LandingPage = () => {
       <section id="invoice-templates" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Professional invoice templates</h2>
-            <p className="text-xl text-muted-foreground">Choose the format that fits your business and compliance needs.</p>
+            <h2 className="text-4xl font-bold mb-4">Awesome Templates</h2>
+            <p className="text-xl text-muted-foreground">Tailor made, professional, and hand‑crafted templates for your business to stand out.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="dashboard-card">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="dashboard-card hover:shadow-elegant">
               <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-lg bg-primary/10"><FileText className="h-6 w-6 text-primary"/></div>
+                <div className="rounded-xl border bg-card p-3 mb-4">
+                  <InvoiceSVG accent="#b45309" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Standard PDF</h3>
-                <p className="text-muted-foreground mb-4">Classic, client‑friendly PDF invoices with logo, branding, and line items.</p>
-                <div className="rounded-lg border p-4 text-sm">
-                  <div className="flex justify-between mb-2"><span className="font-semibold">BillSync</span><span>#INV‑1024</span></div>
-                  <div className="h-2 bg-muted rounded w-1/2 mb-3"></div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-muted-foreground"><span>Design services</span><span>$1,200</span></div>
-                    <div className="flex justify-between text-muted-foreground"><span>Hosting</span><span>$49</span></div>
-                    <div className="flex justify-between font-semibold"><span>Total</span><span>$1,249</span></div>
-                  </div>
-                </div>
+                <div className="text-center font-medium">Vintage</div>
               </CardContent>
             </Card>
-            <Card className="dashboard-card">
+            <Card className="dashboard-card hover:shadow-elegant">
               <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-lg bg-primary/10"><FileDown className="h-6 w-6 text-primary"/></div>
+                <div className="rounded-xl border bg-card p-3 mb-4">
+                  <InvoiceSVG accent="#2563eb" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">CSV / Export</h3>
-                <p className="text-muted-foreground mb-4">One‑click export to CSV for accounting tools like Excel, Google Sheets, and more.</p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Financial summaries</li>
-                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Itemized details</li>
-                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Tax breakdowns</li>
-                </ul>
+                <div className="text-center font-medium">Modern</div>
               </CardContent>
             </Card>
-            <Card className="dashboard-card">
+            <Card className="dashboard-card hover:shadow-elegant">
               <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-lg bg-primary/10"><Shield className="h-6 w-6 text-primary"/></div>
+                <div className="rounded-xl border bg-card p-3 mb-4">
+                  <InvoiceSVG accent="#06b6d4" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Tax‑compliant</h3>
-                <p className="text-muted-foreground mb-4">GST/VAT compliant formats with automatic tax calculation and regional settings.</p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Multiple tax rates</li>
-                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>HSN/SAC support</li>
-                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Automatic rounding</li>
-                </ul>
+                <div className="text-center font-medium">Service</div>
+              </CardContent>
+            </Card>
+            <Card className="dashboard-card hover:shadow-elegant">
+              <CardContent className="p-6">
+                <div className="rounded-xl border bg-card p-3 mb-4">
+                  <InvoiceSVG accent="#16a34a" />
+                </div>
+                <div className="text-center font-medium">Evergreen</div>
               </CardContent>
             </Card>
           </div>
