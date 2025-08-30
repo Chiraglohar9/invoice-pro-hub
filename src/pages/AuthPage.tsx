@@ -6,7 +6,9 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
-import { Github, Mail, Eye, EyeOff } from 'lucide-react';
+import { Github, Mail, Eye, EyeOff, Sun, Moon } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { useTheme } from '@/components/ui/theme-provider';
 import { useAuth } from '@/hooks/useAuth';
 
 const AuthPage = () => {
@@ -16,6 +18,7 @@ const AuthPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { user, signIn, signUp, signInWithGoogle, signInWithGitHub } = useAuth();
   const navigate = useNavigate();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     if (user) {
@@ -46,7 +49,37 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+    <div className="min-h-screen bg-background">
+      <nav className="border-b border-border/40 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">BillSync</h1>
+              <Badge variant="secondary" className="ml-3">Beta</Badge>
+            </div>
+            <div className="hidden md:flex items-center gap-6 text-sm">
+              <a href="/#features" className="text-muted-foreground hover:text-foreground">Features</a>
+              <a href="/#pricing" className="text-muted-foreground hover:text-foreground">Pricing</a>
+              <a href="/#invoice-templates" className="text-muted-foreground hover:text-foreground">Templates</a>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                className="h-9 w-9"
+                aria-label="Toggle theme"
+              >
+                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              </Button>
+              <Button variant="secondary" onClick={() => navigate('/')}>Home</Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">Welcome to InvoicePro Hub</CardTitle>
@@ -190,6 +223,7 @@ const AuthPage = () => {
           </div>
         </CardContent>
       </Card>
+      </main>
     </div>
   );
 };
