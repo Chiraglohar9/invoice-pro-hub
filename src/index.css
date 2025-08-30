@@ -284,6 +284,12 @@
   100% { background-position: 0% 50%; }
 }
 
+@keyframes bgMove {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(2%, -1%, 0) rotate(180deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(360deg); }
+}
+
 @keyframes bounceIn {
   0% {
     opacity: 0;
