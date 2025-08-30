@@ -27,6 +27,40 @@ const AuthPage = () => {
     }
   }, [user, navigate]);
 
+  const BusinessIllustration = () => (
+    <svg viewBox="0 0 600 450" className="w-full h-auto" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="hsl(var(--success))" stopOpacity="0.25" />
+        </linearGradient>
+      </defs>
+      <rect x="10" y="10" width="580" height="430" rx="18" fill="url(#grad1)" />
+      <rect x="26" y="26" width="548" height="398" rx="12" fill="hsl(var(--card))" stroke="hsl(var(--border))" />
+      <rect x="26" y="26" width="548" height="56" rx="12" fill="hsl(var(--accent) / 0.4)" />
+      <circle cx="54" cy="54" r="6" fill="hsl(var(--primary))" />
+      <circle cx="74" cy="54" r="6" fill="hsl(var(--success))" />
+      <circle cx="94" cy="54" r="6" fill="hsl(var(--warning))" />
+      <rect x="56" y="108" width="220" height="140" rx="10" fill="hsl(var(--accent) / 0.35)" />
+      <rect x="90" y="216" width="20" height="24" rx="3" fill="hsl(var(--primary))" />
+      <rect x="118" y="196" width="20" height="44" rx="3" fill="hsl(var(--success))" />
+      <rect x="146" y="176" width="20" height="64" rx="3" fill="hsl(var(--warning))" />
+      <rect x="174" y="156" width="20" height="84" rx="3" fill="hsl(var(--profit))" />
+      <rect x="56" y="270" width="220" height="40" rx="8" fill="hsl(var(--accent) / 0.35)" />
+      <rect x="56" y="320" width="220" height="40" rx="8" fill="hsl(var(--accent) / 0.35)" />
+      <rect x="300" y="108" width="258" height="110" rx="10" fill="hsl(var(--accent) / 0.35)" />
+      <polyline points="312,198 340,170 376,187 410,150 454,176 540,132" fill="none" stroke="hsl(var(--primary))" strokeWidth="3" />
+      <circle cx="340" cy="170" r="4" fill="hsl(var(--primary))" />
+      <circle cx="410" cy="150" r="4" fill="hsl(var(--primary))" />
+      <circle cx="454" cy="176" r="4" fill="hsl(var(--primary))" />
+      <rect x="300" y="230" width="258" height="130" rx="10" fill="hsl(var(--accent) / 0.35)" />
+      <circle cx="360" cy="295" r="32" fill="hsl(var(--primary) / 0.25)" />
+      <path d="M360 295 L360 263 A32 32 0 0 1 392 295 Z" fill="hsl(var(--success))" />
+      <rect x="412" y="276" width="126" height="18" rx="4" fill="hsl(var(--accent) / 0.6)" />
+      <rect x="412" y="304" width="96" height="14" rx="4" fill="hsl(var(--accent) / 0.6)" />
+    </svg>
+  );
+
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) return;
@@ -230,14 +264,8 @@ const AuthPage = () => {
           <div className="hidden md:flex items-center justify-center bg-muted/20 p-6">
             <div className="w-full max-w-md">
               <AspectRatio ratio={4/3}>
-                <img
-                  src="https://cdn.builder.io/o/assets%2F6511a20d57e14f15a494c0209d644585%2F245da1efc51842cf96f251ef03be5aee?alt=media&token=85890a1b-d03d-4a44-a18e-0bc78347190c&apiKey=6511a20d57e14f15a494c0209d644585"
-                  alt="Business illustration"
-                  className="h-full w-full object-contain"
-                  loading="eager"
-                />
+                <BusinessIllustration />
               </AspectRatio>
-              <p className="mt-4 text-sm text-muted-foreground text-center">Secure, modern billing for growing businesses.</p>
             </div>
           </div>
         </div>
