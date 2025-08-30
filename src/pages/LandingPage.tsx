@@ -146,7 +146,7 @@ const LandingPage = () => {
               <Button variant="ghost" onClick={() => navigate('/auth')}>
                 Sign In
               </Button>
-              <Button onClick={() => navigate('/auth')} className="gradient-primary text-white">
+              <Button onClick={() => navigate('/auth')} variant="default">
                 Get Started
               </Button>
             </div>
@@ -362,13 +362,6 @@ const LandingPage = () => {
             >
               Get Started Now
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10"
-            >
-              Contact Sales
             </Button>
           </div>
         </div>
