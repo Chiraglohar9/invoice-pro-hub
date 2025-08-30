@@ -461,38 +461,46 @@ const LandingPage = () => {
             <p className="text-xl text-muted-foreground">Tailor made, professional, and hand‑crafted templates for your business to stand out.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="dashboard-card hover:shadow-elegant">
-              <CardContent className="p-6">
-                <div className="rounded-xl border bg-card p-3 mb-4">
-                  <InvoiceSVG accent="#b45309" />
-                </div>
-                <div className="text-center font-medium">Vintage</div>
-              </CardContent>
-            </Card>
-            <Card className="dashboard-card hover:shadow-elegant">
-              <CardContent className="p-6">
-                <div className="rounded-xl border bg-card p-3 mb-4">
-                  <InvoiceSVG accent="#2563eb" />
-                </div>
-                <div className="text-center font-medium">Modern</div>
-              </CardContent>
-            </Card>
-            <Card className="dashboard-card hover:shadow-elegant">
-              <CardContent className="p-6">
-                <div className="rounded-xl border bg-card p-3 mb-4">
-                  <InvoiceSVG accent="#06b6d4" />
-                </div>
-                <div className="text-center font-medium">Service</div>
-              </CardContent>
-            </Card>
-            <Card className="dashboard-card hover:shadow-elegant">
-              <CardContent className="p-6">
-                <div className="rounded-xl border bg-card p-3 mb-4">
-                  <InvoiceSVG accent="#16a34a" />
-                </div>
-                <div className="text-center font-medium">Evergreen</div>
-              </CardContent>
-            </Card>
+            <div>
+              <Card className="dashboard-card hover:shadow-elegant">
+                <CardContent className="p-6">
+                  <div className="rounded-xl border bg-card p-3">
+                    <InvoiceSVG accent="#b45309" />
+                  </div>
+                </CardContent>
+              </Card>
+              <div className="mt-3 text-center font-medium">Vintage</div>
+            </div>
+            <div>
+              <Card className="dashboard-card hover:shadow-elegant">
+                <CardContent className="p-6">
+                  <div className="rounded-xl border bg-card p-3">
+                    <InvoiceSVG accent="#2563eb" />
+                  </div>
+                </CardContent>
+              </Card>
+              <div className="mt-3 text-center font-medium">Modern</div>
+            </div>
+            <div>
+              <Card className="dashboard-card hover:shadow-elegant">
+                <CardContent className="p-6">
+                  <div className="rounded-xl border bg-card p-3">
+                    <InvoiceSVG accent="#06b6d4" />
+                  </div>
+                </CardContent>
+              </Card>
+              <div className="mt-3 text-center font-medium">Service</div>
+            </div>
+            <div>
+              <Card className="dashboard-card hover:shadow-elegant">
+                <CardContent className="p-6">
+                  <div className="rounded-xl border bg-card p-3">
+                    <InvoiceSVG accent="#16a34a" />
+                  </div>
+                </CardContent>
+              </Card>
+              <div className="mt-3 text-center font-medium">Evergreen</div>
+            </div>
           </div>
         </div>
       </section>
