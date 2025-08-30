@@ -363,29 +363,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to transform your business finances?
-          </h2>
-          <p className="text-xl text-white/90 mb-10 leading-relaxed">
-            Join thousands of businesses already using BillSync to streamline their financial operations.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              variant="secondary"
-              onClick={() => navigate('/auth')}
-              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90"
-            >
-              Get Started Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* Pricing */}
       <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -514,6 +491,30 @@ const LandingPage = () => {
         </div>
       </section>
 
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to transform your business finances?
+          </h2>
+          <p className="text-xl text-white/90 mb-10 leading-relaxed">
+            Join thousands of businesses already using BillSync to streamline their financial operations.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              variant="secondary"
+              onClick={() => navigate('/auth')}
+              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90"
+            >
+              Get Started Now
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="border-t border-border/40 px-4 sm:px-6 lg:px-8">
