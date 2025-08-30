@@ -267,7 +267,7 @@ const LandingPage = () => {
               <div className="text-muted-foreground">Active Users</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold text-success"><StatCounter end={50000000} suffix="+" /></div>
+              <div className="text-4xl font-bold text-success"><StatCounter end={50000000} format="currency" suffix="+" /></div>
               <div className="text-muted-foreground">Invoices Processed</div>
             </div>
             <div className="space-y-2">
