@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { useTheme } from '@/components/ui/theme-provider'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
@@ -247,7 +248,7 @@ const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Everything you need to manage finances</h2>
@@ -270,6 +271,173 @@ const LandingPage = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Simple, transparent pricing</h2>
+            <p className="text-xl text-muted-foreground">Start free. Upgrade only when you need more power.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="dashboard-card">
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold">Starter</h3>
+                  <p className="text-sm text-muted-foreground">For individuals and freelancers</p>
+                </div>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">$0</span>
+                  <span className="text-muted-foreground">/mo</span>
+                </div>
+                <ul className="space-y-3 text-sm text-muted-foreground flex-1">
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Unlimited invoices</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Basic analytics</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Email support</li>
+                </ul>
+                <Button onClick={() => navigate('/auth')} className="mt-6">Start free</Button>
+              </CardContent>
+            </Card>
+
+            <Card className="dashboard-card ring-2 ring-primary">
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="mb-4">
+                  <Badge className="mb-2">Popular</Badge>
+                  <h3 className="text-xl font-semibold">Pro</h3>
+                  <p className="text-sm text-muted-foreground">For growing teams</p>
+                </div>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">$29</span>
+                  <span className="text-muted-foreground">/mo</span>
+                </div>
+                <ul className="space-y-3 text-sm text-muted-foreground flex-1">
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Everything in Starter</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Team collaboration</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Automations & reminders</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Advanced analytics</li>
+                </ul>
+                <Button onClick={() => navigate('/auth')} className="mt-6" variant="default">Get Pro</Button>
+              </CardContent>
+            </Card>
+
+            <Card className="dashboard-card">
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold">Enterprise</h3>
+                  <p className="text-sm text-muted-foreground">For organizations at scale</p>
+                </div>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">Custom</span>
+                </div>
+                <ul className="space-y-3 text-sm text-muted-foreground flex-1">
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>SSO and advanced roles</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Dedicated infrastructure</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Priority support</li>
+                </ul>
+                <Button onClick={() => navigate('/auth')} className="mt-6" variant="secondary">Request demo</Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Invoice Formats */}
+      <section id="invoice-format" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle/40">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Professional invoice formats</h2>
+            <p className="text-xl text-muted-foreground">Choose the format that fits your business and compliance needs.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="dashboard-card">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-lg bg-primary/10"><FileText className="h-6 w-6 text-primary"/></div>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Standard PDF</h3>
+                <p className="text-muted-foreground mb-4">Classic, client‑friendly PDF invoices with logo, branding, and line items.</p>
+                <div className="rounded-lg border p-4 text-sm">
+                  <div className="flex justify-between mb-2"><span className="font-semibold">BillSync</span><span>#INV‑1024</span></div>
+                  <div className="h-2 bg-muted rounded w-1/2 mb-3"></div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-muted-foreground"><span>Design services</span><span>$1,200</span></div>
+                    <div className="flex justify-between text-muted-foreground"><span>Hosting</span><span>$49</span></div>
+                    <div className="flex justify-between font-semibold"><span>Total</span><span>$1,249</span></div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="dashboard-card">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-lg bg-primary/10"><FileDown className="h-6 w-6 text-primary"/></div>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">CSV / Export</h3>
+                <p className="text-muted-foreground mb-4">One‑click export to CSV for accounting tools like Excel, Google Sheets, and more.</p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Financial summaries</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Itemized details</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Tax breakdowns</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="dashboard-card">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-lg bg-primary/10"><Shield className="h-6 w-6 text-primary"/></div>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Tax‑compliant</h3>
+                <p className="text-muted-foreground mb-4">GST/VAT compliant formats with automatic tax calculation and regional settings.</p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Multiple tax rates</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>HSN/SAC support</li>
+                  <li className="flex items-start"><CheckCircle className="h-4 w-4 text-success mr-2 mt-0.5"/>Automatic rounding</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section id="team" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Meet the team</h2>
+            <p className="text-xl text-muted-foreground">A passionate group building the future of business finances.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="dashboard-card text-center">
+              <CardContent className="p-6">
+                <Avatar className="h-16 w-16 mx-auto mb-4"><AvatarFallback>AP</AvatarFallback></Avatar>
+                <h3 className="font-semibold">Aarav Patel</h3>
+                <p className="text-sm text-muted-foreground">Co‑founder & CEO</p>
+              </CardContent>
+            </Card>
+            <Card className="dashboard-card text-center">
+              <CardContent className="p-6">
+                <Avatar className="h-16 w-16 mx-auto mb-4"><AvatarFallback>MG</AvatarFallback></Avatar>
+                <h3 className="font-semibold">Maya Gupta</h3>
+                <p className="text-sm text-muted-foreground">Head of Product</p>
+              </CardContent>
+            </Card>
+            <Card className="dashboard-card text-center">
+              <CardContent className="p-6">
+                <Avatar className="h-16 w-16 mx-auto mb-4"><AvatarFallback>IV</AvatarFallback></Avatar>
+                <h3 className="font-semibold">Ishan Verma</h3>
+                <p className="text-sm text-muted-foreground">Engineering Lead</p>
+              </CardContent>
+            </Card>
+            <Card className="dashboard-card text-center">
+              <CardContent className="p-6">
+                <Avatar className="h-16 w-16 mx-auto mb-4"><AvatarFallback>AR</AvatarFallback></Avatar>
+                <h3 className="font-semibold">Ananya Rao</h3>
+                <p className="text-sm text-muted-foreground">Design Director</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -408,10 +576,10 @@ const LandingPage = () => {
             <div>
               <h4 className="text-sm font-semibold mb-3">Product</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground">Features</a></li>
-                <li><a href="#" className="hover:text-foreground">Pricing</a></li>
-                <li><a href="#" className="hover:text-foreground">Integrations</a></li>
-                <li><a href="#" className="hover:text-foreground">Changelog</a></li>
+                <li><a href="#features" className="hover:text-foreground">Features</a></li>
+                <li><a href="#pricing" className="hover:text-foreground">Pricing</a></li>
+                <li><a href="#invoice-format" className="hover:text-foreground">Invoice Formats</a></li>
+                <li><a href="#team" className="hover:text-foreground">Team</a></li>
               </ul>
             </div>
             <div>
