@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,12 +20,22 @@ const AuthPage = () => {
   const { user, signIn, signUp, signInWithGoogle, signInWithGitHub } = useAuth();
   const navigate = useNavigate();
   const { theme, setTheme } = useTheme();
+  const location = useLocation();
+  const getTabFromSearch = () => {
+    const p = new URLSearchParams(location.search).get('tab');
+    return p === 'signup' ? 'signup' : 'signin';
+  };
+  const [activeTab, setActiveTab] = useState<'signin' | 'signup'>(getTabFromSearch());
 
   useEffect(() => {
     if (user) {
       navigate('/');
     }
   }, [user, navigate]);
+
+  useEffect(() => {
+    setActiveTab(getTabFromSearch());
+  }, [location.search]);
 
   const BusinessIllustration = () => (
     <svg viewBox="0 0 600 450" className="w-full h-auto drop-shadow-md" aria-hidden="true" focusable="false">
@@ -126,7 +136,7 @@ const AuthPage = () => {
             </CardHeader>
 
             <CardContent className="px-0">
-              <Tabs defaultValue="signin" className="w-full">
+              <Tabs value={activeTab} onValueChange={(v) => { setActiveTab(v as 'signin'|'signup'); navigate({ pathname: location.pathname, search: `?tab=${v}` }, { replace: true }); }} className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-6">
                   <TabsTrigger value="signin">Sign In</TabsTrigger>
                   <TabsTrigger value="signup">Sign Up</TabsTrigger>
