@@ -103,6 +103,48 @@ const LandingPage = () => {
       role: "Agency Founder",
       content: "Our team productivity increased dramatically since switching to BillSync.",
       rating: 5
+    },
+    {
+      name: "Priya Singh",
+      role: "Startup Founder",
+      content: "We scaled from 5 to 50 clients without hiring an extra accountant.",
+      rating: 5
+    },
+    {
+      name: "David Kim",
+      role: "Accountant",
+      content: "Exports reconcile perfectly with our ledgers. Huge time saver.",
+      rating: 4
+    },
+    {
+      name: "Aisha Khan",
+      role: "Operations Manager",
+      content: "Automations and reminders reduced late payments by 60%.",
+      rating: 5
+    },
+    {
+      name: "Carlos Alvarez",
+      role: "Freelance Developer",
+      content: "Creating invoices takes seconds now. Clean and professional.",
+      rating: 5
+    },
+    {
+      name: "Emma Williams",
+      role: "E‑commerce Owner",
+      content: "Real‑time analytics gave us clarity on margins and growth.",
+      rating: 5
+    },
+    {
+      name: "Noah Patel",
+      role: "Consultant",
+      content: "Clients love the payment links. I get paid faster.",
+      rating: 5
+    },
+    {
+      name: "Olivia Brown",
+      role: "Marketing Lead",
+      content: "Beautiful UI and rock‑solid performance. Highly reliable.",
+      rating: 5
     }
   ]
 
@@ -359,26 +401,31 @@ const LandingPage = () => {
               Join thousands of satisfied users who trust BillSync with their finances.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="dashboard-card">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-warning text-warning" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent"></div>
+
+            <div className="marquee">
+              <div className="marquee-track gap-6">
+                {[...testimonials, ...testimonials].map((t, i) => (
+                  <Card key={i} className="dashboard-card w-80 shrink-0">
+                    <CardContent className="p-6">
+                      <div className="flex mb-4">
+                        {[...Array(t.rating)].map((_, j) => (
+                          <Star key={j} className="h-5 w-5 fill-warning text-warning" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">"{t.content}"</p>
+                      <div>
+                        <div className="font-semibold">{t.name}</div>
+                        <div className="text-sm text-muted-foreground">{t.role}</div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
