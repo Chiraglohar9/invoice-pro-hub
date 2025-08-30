@@ -259,7 +259,7 @@ const LandingPage = () => {
 
       {/* Demo Video */}
       <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold">See BillSync in Action</h2>
             <p className="text-muted-foreground mt-2">Quick walkthrough of invoicing, tracking, and analytics.</p>
