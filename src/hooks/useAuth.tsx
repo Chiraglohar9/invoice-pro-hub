@@ -144,10 +144,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signInWithGoogle = async () => {
     try {
-      const { error } = await supabase.auth.signInWithOAuth({
+      const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/`
+          redirectTo: `${window.location.origin}/`,
+          skipBrowserRedirect: true,
         }
       });
 
@@ -157,6 +158,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           description: error.message,
           variant: "destructive",
         });
+        return;
+      }
+
+      if (data?.url) {
+        const target = window.top ?? window;
+        target.location.href = data.url;
       }
     } catch (error: any) {
       toast({
@@ -169,10 +176,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signInWithGitHub = async () => {
     try {
-      const { error } = await supabase.auth.signInWithOAuth({
+      const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'github',
         options: {
-          redirectTo: `${window.location.origin}/`
+          redirectTo: `${window.location.origin}/`,
+          skipBrowserRedirect: true,
         }
       });
 
@@ -182,6 +190,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           description: error.message,
           variant: "destructive",
         });
+        return;
+      }
+
+      if (data?.url) {
+        const target = window.top ?? window;
+        target.location.href = data.url;
       }
     } catch (error: any) {
       toast({
