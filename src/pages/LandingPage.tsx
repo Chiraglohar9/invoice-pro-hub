@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { useTheme } from '@/components/ui/theme-provider'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
@@ -515,45 +514,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Team */}
-      <section id="team" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Meet the team</h2>
-            <p className="text-xl text-muted-foreground">A passionate group building the future of business finances.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="dashboard-card text-center">
-              <CardContent className="p-6">
-                <Avatar className="h-16 w-16 mx-auto mb-4"><AvatarFallback>AP</AvatarFallback></Avatar>
-                <h3 className="font-semibold">Aarav Patel</h3>
-                <p className="text-sm text-muted-foreground">Co‑founder & CEO</p>
-              </CardContent>
-            </Card>
-            <Card className="dashboard-card text-center">
-              <CardContent className="p-6">
-                <Avatar className="h-16 w-16 mx-auto mb-4"><AvatarFallback>MG</AvatarFallback></Avatar>
-                <h3 className="font-semibold">Maya Gupta</h3>
-                <p className="text-sm text-muted-foreground">Head of Product</p>
-              </CardContent>
-            </Card>
-            <Card className="dashboard-card text-center">
-              <CardContent className="p-6">
-                <Avatar className="h-16 w-16 mx-auto mb-4"><AvatarFallback>IV</AvatarFallback></Avatar>
-                <h3 className="font-semibold">Ishan Verma</h3>
-                <p className="text-sm text-muted-foreground">Engineering Lead</p>
-              </CardContent>
-            </Card>
-            <Card className="dashboard-card text-center">
-              <CardContent className="p-6">
-                <Avatar className="h-16 w-16 mx-auto mb-4"><AvatarFallback>AR</AvatarFallback></Avatar>
-                <h3 className="font-semibold">Ananya Rao</h3>
-                <p className="text-sm text-muted-foreground">Design Director</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="border-t border-border/40 px-4 sm:px-6 lg:px-8">
@@ -582,7 +542,6 @@ const LandingPage = () => {
                 <li><a href="#features" className="hover:text-foreground">Features</a></li>
                 <li><a href="#pricing" className="hover:text-foreground">Pricing</a></li>
                 <li><a href="#invoice-format" className="hover:text-foreground">Invoice Formats</a></li>
-                <li><a href="#team" className="hover:text-foreground">Team</a></li>
               </ul>
             </div>
             <div>
