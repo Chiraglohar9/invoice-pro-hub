@@ -15,7 +15,10 @@ import {
   ArrowRight,
   Sun,
   Moon,
-  Star
+  Star,
+  Plug,
+  Settings,
+  PartyPopper
 } from 'lucide-react'
 
 const LandingPage = () => {
@@ -161,6 +164,32 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* Core Features */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <Plug className="h-6 w-6" />
+            </div>
+            <h3 className="text-lg font-semibold tracking-wide">CONNECT</h3>
+            <p className="text-sm text-muted-foreground mt-2">Lorem ipsum dolor sit amet consectetur adipiscing elit. In sed lorem efficitur vestibulum erat finibus.</p>
+          </div>
+          <div>
+            <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <Settings className="h-6 w-6" />
+            </div>
+            <h3 className="text-lg font-semibold tracking-wide">CONFIGURE</h3>
+            <p className="text-sm text-muted-foreground mt-2">Lorem ipsum dolor sit amet consectetur adipiscing elit. In sed lorem efficitur vestibulum erat finibus.</p>
+          </div>
+          <div>
+            <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <PartyPopper className="h-6 w-6" />
+            </div>
+            <h3 className="text-lg font-semibold tracking-wide">ENJOY</h3>
+            <p className="text-sm text-muted-foreground mt-2">Lorem ipsum dolor sit amet consectetur adipiscing elit. In sed lorem efficitur vestibulum erat finibus.</p>
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
