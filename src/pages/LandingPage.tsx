@@ -5,6 +5,7 @@ import { useTheme } from '@/components/ui/theme-provider'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { useCountUp } from '@/hooks/useCountUp'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -252,6 +253,30 @@ const LandingPage = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Video */}
+      <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold">See BillSync in Action</h2>
+            <p className="text-muted-foreground mt-2">Quick walkthrough of invoicing, tracking, and analytics.</p>
+          </div>
+          <div className="animated-gradient-border rounded-2xl hover:shadow-glow transition-smooth">
+            <div className="rounded-2xl overflow-hidden bg-card">
+              <AspectRatio ratio={16/9}>
+                <video
+                  controls
+                  className="h-full w-full object-cover transition-smooth hover:brightness-110 hover:scale-[1.005]"
+                  poster="/placeholder.svg"
+                >
+                  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </AspectRatio>
+            </div>
           </div>
         </div>
       </section>
