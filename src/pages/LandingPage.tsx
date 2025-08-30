@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { useTheme } from '@/components/ui/theme-provider'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
+import { useCountUp } from '@/hooks/useCountUp'
 import { useNavigate } from 'react-router-dom'
 import {
   CheckCircle,
@@ -85,6 +86,11 @@ const LandingPage = () => {
       rating: 5
     }
   ]
+
+  const activeUsers = useCountUp({ end: 10000, duration: 2000 });
+  const invoicesProcessed = useCountUp({ end: 50000000, duration: 2000 });
+  const uptime = useCountUp({ end: 99.9, duration: 2000, decimals: 1 });
+  const formatCompact = (n: number) => Intl.NumberFormat(undefined, { notation: 'compact', maximumFractionDigits: 1 }).format(n);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
@@ -232,15 +238,15 @@ const LandingPage = () => {
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="space-y-2">
-              <div className="text-4xl font-bold text-primary">10K+</div>
+              <div className="text-4xl font-bold text-primary">{formatCompact(activeUsers)}+</div>
               <div className="text-muted-foreground">Active Users</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold text-success">$50M+</div>
+              <div className="text-4xl font-bold text-success">${formatCompact(invoicesProcessed)}+</div>
               <div className="text-muted-foreground">Invoices Processed</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold text-profit">99.9%</div>
+              <div className="text-4xl font-bold text-profit">{uptime.toFixed(1)}%</div>
               <div className="text-muted-foreground">Uptime</div>
             </div>
             <div className="space-y-2">
