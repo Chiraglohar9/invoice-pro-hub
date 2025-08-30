@@ -275,6 +275,119 @@ const LandingPage = () => {
         </div>
       </section>
 
+
+
+
+      {/* Demo Video */}
+      <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold">See BillSync in Action</h2>
+            <p className="text-muted-foreground mt-2">Quick walkthrough of invoicing, tracking, and analytics.</p>
+          </div>
+          <div className="relative">
+            <div className="animated-video-bg"></div>
+            <div className="animated-gradient-border rounded-2xl hover:shadow-glow transition-smooth relative z-10">
+              <div className="rounded-2xl overflow-hidden bg-card">
+                <AspectRatio ratio={16/9}>
+                  <video
+                  controls
+                  className="h-full w-full object-cover transition-smooth hover:brightness-110 hover:scale-[1.005]"
+                  poster="/placeholder.svg"
+                >
+                  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                  </video>
+                </AspectRatio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-16">Trusted by businesses worldwide</h2>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="space-y-2">
+              <div className="text-4xl font-bold text-primary"><StatCounter end={10000} format="compact" suffix="+" /></div>
+              <div className="text-muted-foreground">Active Users</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-4xl font-bold text-success"><StatCounter end={50000000} format="currency" suffix="+" /></div>
+              <div className="text-muted-foreground">Invoices Processed</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-4xl font-bold text-profit"><StatCounter end={99.9} decimals={1} suffix="%" /></div>
+              <div className="text-muted-foreground">Uptime</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-4xl font-bold text-primary">24/7</div>
+              <div className="text-muted-foreground">Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">What our customers say</h2>
+            <p className="text-xl text-muted-foreground">
+              Join thousands of satisfied users who trust BillSync with their finances.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="dashboard-card">
+                <CardContent className="p-6">
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-warning text-warning" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    "{testimonial.content}"
+                  </p>
+                  <div>
+                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to transform your business finances?
+          </h2>
+          <p className="text-xl text-white/90 mb-10 leading-relaxed">
+            Join thousands of businesses already using BillSync to streamline their financial operations.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              variant="secondary"
+              onClick={() => navigate('/auth')}
+              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90"
+            >
+              Get Started Now
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -438,116 +551,6 @@ const LandingPage = () => {
                 <p className="text-sm text-muted-foreground">Design Director</p>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Demo Video */}
-      <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold">See BillSync in Action</h2>
-            <p className="text-muted-foreground mt-2">Quick walkthrough of invoicing, tracking, and analytics.</p>
-          </div>
-          <div className="relative">
-            <div className="animated-video-bg"></div>
-            <div className="animated-gradient-border rounded-2xl hover:shadow-glow transition-smooth relative z-10">
-              <div className="rounded-2xl overflow-hidden bg-card">
-                <AspectRatio ratio={16/9}>
-                  <video
-                  controls
-                  className="h-full w-full object-cover transition-smooth hover:brightness-110 hover:scale-[1.005]"
-                  poster="/placeholder.svg"
-                >
-                  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                  </video>
-                </AspectRatio>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-16">Trusted by businesses worldwide</h2>
-          
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-2">
-              <div className="text-4xl font-bold text-primary"><StatCounter end={10000} format="compact" suffix="+" /></div>
-              <div className="text-muted-foreground">Active Users</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-4xl font-bold text-success"><StatCounter end={50000000} format="currency" suffix="+" /></div>
-              <div className="text-muted-foreground">Invoices Processed</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-4xl font-bold text-profit"><StatCounter end={99.9} decimals={1} suffix="%" /></div>
-              <div className="text-muted-foreground">Uptime</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-4xl font-bold text-primary">24/7</div>
-              <div className="text-muted-foreground">Support</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">What our customers say</h2>
-            <p className="text-xl text-muted-foreground">
-              Join thousands of satisfied users who trust BillSync with their finances.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="dashboard-card">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-warning text-warning" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to transform your business finances?
-          </h2>
-          <p className="text-xl text-white/90 mb-10 leading-relaxed">
-            Join thousands of businesses already using BillSync to streamline their financial operations.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              variant="secondary"
-              onClick={() => navigate('/auth')}
-              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90"
-            >
-              Get Started Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
           </div>
         </div>
       </section>
