@@ -433,11 +433,11 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Invoice Formats */}
-      <section id="invoice-format" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
+      {/* Invoice Templates */}
+      <section id="invoice-templates" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Professional invoice formats</h2>
+            <h2 className="text-4xl font-bold mb-4">Professional invoice templates</h2>
             <p className="text-xl text-muted-foreground">Choose the format that fits your business and compliance needs.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -542,7 +542,7 @@ const LandingPage = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#features" className="hover:text-foreground">Features</a></li>
                 <li><a href="#pricing" className="hover:text-foreground">Pricing</a></li>
-                <li><a href="#invoice-format" className="hover:text-foreground">Invoice Formats</a></li>
+                <li><a href="#invoice-templates" className="hover:text-foreground">Invoice Templates</a></li>
               </ul>
             </div>
             <div>
