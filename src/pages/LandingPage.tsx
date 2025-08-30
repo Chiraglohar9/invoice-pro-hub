@@ -5,6 +5,7 @@ import { useTheme } from '@/components/ui/theme-provider'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { useCountUp } from '@/hooks/useCountUp'
+import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   CheckCircle,
@@ -87,10 +88,34 @@ const LandingPage = () => {
     }
   ]
 
-  const activeUsers = useCountUp({ end: 10000, duration: 2000 });
-  const invoicesProcessed = useCountUp({ end: 50000000, duration: 2000 });
-  const uptime = useCountUp({ end: 99.9, duration: 2000, decimals: 1 });
   const formatCompact = (n: number) => Intl.NumberFormat(undefined, { notation: 'compact', maximumFractionDigits: 1 }).format(n);
+
+  const StatCounter = ({ end, decimals = 0, prefix = '', suffix = '', format = 'none' as 'none' | 'compact' | 'currency' }) => {
+    const ref = useRef<HTMLDivElement | null>(null)
+    const [start, setStart] = useState(false)
+
+    useEffect(() => {
+      const el = ref.current
+      if (!el) return
+      const io = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) {
+          setStart(true)
+          io.disconnect()
+        }
+      }, { threshold: 0.3 })
+      io.observe(el)
+      return () => io.disconnect()
+    }, [])
+
+    const value = useCountUp({ end: start ? end : 0, duration: 1800, decimals })
+    const formatted = format === 'compact'
+      ? formatCompact(value)
+      : format === 'currency'
+        ? Intl.NumberFormat(undefined, { notation: 'compact', maximumFractionDigits: 1, style: 'currency', currency: 'USD' }).format(value)
+        : value.toFixed(decimals)
+
+    return <div ref={ref}>{prefix}{formatted}{suffix}</div>
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
@@ -238,15 +263,15 @@ const LandingPage = () => {
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="space-y-2">
-              <div className="text-4xl font-bold text-primary">{formatCompact(activeUsers)}+</div>
+              <div className="text-4xl font-bold text-primary"><StatCounter end={10000} format="compact" suffix="+" /></div>
               <div className="text-muted-foreground">Active Users</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold text-success">${formatCompact(invoicesProcessed)}+</div>
+              <div className="text-4xl font-bold text-success"><StatCounter end={50000000} format="currency" suffix="+" /></div>
               <div className="text-muted-foreground">Invoices Processed</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold text-profit">{uptime.toFixed(1)}%</div>
+              <div className="text-4xl font-bold text-profit"><StatCounter end={99.9} decimals={1} suffix="%" /></div>
               <div className="text-muted-foreground">Uptime</div>
             </div>
             <div className="space-y-2">
