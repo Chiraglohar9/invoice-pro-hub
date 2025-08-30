@@ -229,6 +229,21 @@
     border-radius: calc(var(--radius) + 6px);
     animation: borderPan 6s linear infinite;
   }
+
+  /* Animated glow background for video */
+  .animated-video-bg {
+    position: absolute;
+    inset: -10px;
+    border-radius: calc(var(--radius) + 12px);
+    background:
+      radial-gradient(600px 300px at 0% 0%, hsl(var(--primary) / 0.35), transparent 60%),
+      radial-gradient(600px 300px at 100% 0%, hsl(var(--success) / 0.35), transparent 60%),
+      radial-gradient(600px 300px at 50% 100%, hsl(var(--warning) / 0.35), transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+    animation: bgMove 12s linear infinite;
+    pointer-events: none;
+  }
 }
 
 @layer utilities {
