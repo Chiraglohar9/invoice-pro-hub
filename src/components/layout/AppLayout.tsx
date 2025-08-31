@@ -153,7 +153,7 @@ export default function AppLayout() {
                 <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 <span className="sr-only">Toggle theme</span>
               </Button>
-              <Button className="gradient-primary text-white">
+              <Button className="gradient-primary text-white" onClick={() => navigate('/invoices/create')}>
                 <Plus className="h-4 w-4 mr-2" />
                 Create Invoice
               </Button>
