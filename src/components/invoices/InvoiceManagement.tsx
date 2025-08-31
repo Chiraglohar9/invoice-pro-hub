@@ -94,7 +94,7 @@ export default function InvoiceManagement() {
             </SelectContent>
           </Select>
         </div>
-        <Button className="gradient-primary text-white">
+        <Button className="gradient-primary text-white" onClick={() => window.location.assign('/invoices/create')}>
           <Plus className="h-4 w-4 mr-2" />
           Generate Invoice
         </Button>
