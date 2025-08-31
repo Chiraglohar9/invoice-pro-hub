@@ -8,6 +8,7 @@ import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import AppLayout from "./components/layout/AppLayout";
 import Index from "./pages/Index";
 import InvoicePage from "./pages/InvoicePage";
+import CreateInvoicePage from "./pages/CreateInvoicePage";
 import TransactionPage from "./pages/TransactionPage";
 import CustomerPage from "./pages/CustomerPage";
 import ReportPage from "./pages/ReportPage";
