@@ -44,6 +44,7 @@ const AppRoutes = () => {
           <Route index element={<Index />} />
           <Route path="dashboard" element={<Index />} />
           <Route path="invoices" element={<InvoicePage />} />
+          <Route path="invoices/create" element={<CreateInvoicePage />} />
           <Route path="transactions" element={<TransactionPage />} />
           <Route path="customers" element={<CustomerPage />} />
           <Route path="products" element={<div className="p-6"><h1 className="text-2xl font-bold">Products Management</h1><p className="text-muted-foreground mt-2">Product management features coming soon...</p></div>} />
